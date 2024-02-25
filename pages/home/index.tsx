@@ -5,7 +5,7 @@ import {
   Box,
 } from '@mui/material';
 // import AboutMeSection from '@/components/organism/AboutMeSection';
-import ArticlesSlider from '@/components/organism/ArticlesSlider';
+// import ArticlesSlider from '@/components/organism/ArticlesSlider';
 // import AllAriclesSection from '@/components/organism/AllAriclesSection';
 
 function HomePage() {
@@ -13,8 +13,9 @@ function HomePage() {
 
   return (
     <Box>
+      Home Page
       {/* <AboutMeSection /> */}
-      <ArticlesSlider />
+      {/* <ArticlesSlider /> */}
     </Box>
 
   );
