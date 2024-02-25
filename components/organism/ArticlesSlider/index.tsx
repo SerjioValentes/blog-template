@@ -3,12 +3,12 @@ import { Box } from '@mui/material';
 import React, { useEffect, useState } from 'react';
 import useEmblaCarousel from 'embla-carousel-react';
 import './index.css';
-import EachArticle from '@/components/molecule/EachArticle';
+import EachSlide from '@/components/molecule/EachSlide';
 
 const ArticlesSlider = () => {
   const request = 'post';
   const [allPosts, setAllPosts] = useState<any | null>(null);
-  const [emblaRef] = useEmblaCarousel();
+  const [emblaRef] = useEmblaCarousel({ align: 'start', loop: true });
 
   useEffect(() => {
     const firstPage = '0';
@@ -19,13 +19,15 @@ const ArticlesSlider = () => {
     });
   }, []);
   return (
-    <Box>
-
+    <Box sx={{
+      p: 2,
+    }}
+    >
       <div className="embla" ref={emblaRef}>
         <div className="embla__container">
           {allPosts && allPosts.map((post: any) => (
             <div key={post._id} className="embla__slide">
-              <EachArticle post={post} />
+              <EachSlide post={post} />
             </div>
           ))}
         </div>

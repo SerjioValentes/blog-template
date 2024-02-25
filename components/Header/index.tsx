@@ -1,18 +1,28 @@
-// 'use client';
+'use client';
 
-// import { Stack } from '@mui/material';
-// import React from 'react';
+import {
+  Button, Stack,
+} from '@mui/material';
+import React from 'react';
+// import LoggedMenu from '../molecule/LoggedMenu';
+import UnLoggedMenu from '../molecule/UnLoggedMenu';
 
-// const Header = () => {
-//   const [state, setState] = React.useState('Header');
-
-//   return (
-//     <Stack>
-//       <div>Menu 1</div>
-//       <div>Menu 2</div>
-//       <div>Menu 3</div>
-//       <div>Menu 4</div>
-//     </Stack>
-//   );
-// };
-export default {};
+const Header = () => (
+  <Stack
+    direction="row"
+    spacing={2}
+    sx={{
+      display: 'flex',
+      justifyContent: 'space-between',
+      p: 1,
+    }}
+  >
+    <Stack direction="row" spacing={2}>
+      <Button variant="contained">Курсы</Button>
+      <Button variant="contained">Все статьи</Button>
+    </Stack>
+    {/* <LoggedMenu /> */}
+    <UnLoggedMenu />
+  </Stack>
+);
+export default Header;

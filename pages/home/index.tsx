@@ -4,16 +4,20 @@ import React from 'react';
 import {
   Box,
 } from '@mui/material';
+import Stub from '@/components/molecule/Stub';
 // import AboutMeSection from '@/components/organism/AboutMeSection';
 // import ArticlesSlider from '@/components/organism/ArticlesSlider';
-// import AllAriclesSection from '@/components/organism/AllAriclesSection';
 
 function HomePage() {
   // const tg = typeof window === 'undefined' ? undefined : (window as any).Telegram?.WebApp;
 
   return (
-    <Box>
-      Home Page
+    <Box sx={{
+      // maxWidth: 1200,
+      // mx: 'auto',
+    }}
+    >
+      <Stub />
       {/* <AboutMeSection /> */}
       {/* <ArticlesSlider /> */}
     </Box>

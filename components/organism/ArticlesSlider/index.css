@@ -2,7 +2,10 @@
     overflow: hidden;
   }
   .embla__container {
-    display: flex;
+    /* display: flex; */
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: 30%; /* Each slide covers 80% of the viewport */
   }
   .embla__slide {
     flex: 0 0 100%;
