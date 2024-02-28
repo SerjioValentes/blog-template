@@ -1,3 +1,5 @@
+'use client';
+
 import { getAllPosts } from '@/helpers/sanityHelper';
 import { Box } from '@mui/material';
 import React, { useEffect, useState } from 'react';

@@ -4,13 +4,13 @@ import theme from '@/helpers/ThemeProvider';
 import styled from '@emotion/styled';
 
 const FormWrapper = styled('div')({
-  padding: '20px',
-  background: theme.palette.primary.main,
   display: 'flex',
   flexDirection: 'column',
+  width: '100%',
+  padding: '20px',
   gap: 20,
-  border: '1px solid black',
   borderRadius: 4,
+  background: theme.palette.primary.main,
 });
 
 export default FormWrapper;

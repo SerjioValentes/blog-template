@@ -2,8 +2,8 @@ import theme from '@/helpers/ThemeProvider';
 import useMediaQuery from '@mui/material/useMediaQuery';
 
 const useWindowSize = () => {
-  const onlyMediumScreen = useMediaQuery(theme.breakpoints.down('md'));
+  const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
 
-  return onlyMediumScreen;
+  return isMobile;
 };
 export default useWindowSize;

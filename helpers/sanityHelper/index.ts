@@ -40,8 +40,16 @@ export const getAuthorData = async ({
 }: any) => {
   await client.fetch<any>(groq`*[_type == "${request}"]{bio, image, name}`)
     .then((data) => {
-      console.log('data', data[0]);
       setAuthorData(data[0]);
+    }).catch((error) => {
+      console.log('error', error);
+    });
+};
+
+export const getPost = async (typeReq: string, postId: string, setPost: any) => {
+  await client.fetch<any>(groq`*[_type == "${typeReq}" && slug.current == "${postId}"]`)
+    .then((data) => {
+      setPost(data[0]);
     }).catch((error) => {
       console.log('error', error);
     });

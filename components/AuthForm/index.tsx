@@ -1,9 +1,11 @@
 'use client';
 
 import React, { useState } from 'react';
-import { Button, TextField } from '@mui/material';
+import {
+  Button, Stack, TextField, Typography,
+} from '@mui/material';
 import CustomizedSwitches from '@/components/atom/Switch';
-import axios from 'axios';
+import AuthService from '@/services/AuthService';
 import FormWrapper from './style';
 
 export interface IUserData {
@@ -11,16 +13,15 @@ export interface IUserData {
   password: string;
 }
 
-function AuthForm() {
-  const linkRegistration = process.env.API_LINK_REG;
-  const linkLogin = process.env.API_LINK_LOG;
-
+const AuthForm = ({ handleClose }: { handleClose: () => void }) => {
   const [userData, setUserData] = useState<IUserData>({
     email: '',
     password: '',
   });
-
+  // For a switcher
   const [isNewUser, setIsNewUser] = useState(true);
+  // Errors
+  const [errors, setErrors] = useState<string[] | null>(null);
 
   const userDataOnChange = (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = event.target;
@@ -32,44 +33,60 @@ function AuthForm() {
   };
 
   const createAccount = () => {
-    // console.log('create', userData);
-    // axios.post(linkRegistration, userData, {
-    //   method: 'POST',
-    //   headers: {
-    //     'Content-Type': 'application/json',
-    //   },
-    // }).then((response) => {
-    //   console.log('response.data');
-    //   console.log(response.data);
-    // }).catch((error) => {
-    //   console.log('error');
-    //   console.log(error);
-    // });
+    AuthService.registration(userData, handleClose, setErrors);
   };
 
   const logIn = async () => {
-    // console.log('login');
-    // axios.post(linkLogin, {
-    //   method: 'POST',
-    //   headers: {
-    //     'Content-Type': 'application/json',
-    //   },
-    // }).then((response) => {
-    //   console.log(response.data);
-    // }).catch((error) => {
-    //   console.log(error);
-    // });
+    AuthService.login(userData, handleClose, setErrors);
   };
 
   return (
     <FormWrapper>
-      <TextField name="email" placeholder="email" onChange={userDataOnChange} />
-      <TextField name="password" placeholder="password" onChange={userDataOnChange} />
-      <CustomizedSwitches firstLabel="Log In" secondLabel="Create account" setIsNewUser={setIsNewUser} isNewUser={isNewUser} />
-      {isNewUser
-        ? <Button variant="contained" onClick={logIn}>Log In</Button>
-        : <Button variant="contained" onClick={createAccount}>Create account</Button>}
+      <Stack sx={{
+        width: '300px',
+        height: '280px',
+      }}
+      >
+        <Stack spacing={1}>
+          <TextField name="email" placeholder="Ваша почта" onChange={userDataOnChange} />
+          <TextField name="password" placeholder="Пароль" onChange={userDataOnChange} />
+        </Stack>
+        <Stack>
+          {errors
+            && errors.map((error: string) => (
+              <Typography
+                variant="body1"
+                color="error"
+                sx={{
+                  fontSize: '0.8rem',
+                }}
+              >
+                *
+                {error}
+              </Typography>
+            ))}
+        </Stack>
+        <CustomizedSwitches
+          firstLabel="Войти"
+          secondLabel="Создать аккаунт"
+          setIsNewUser={setIsNewUser}
+          isNewUser={isNewUser}
+          setErrors={setErrors}
+        />
+
+        {isNewUser
+          ? (
+            <Button
+              fullWidth
+              variant="contained"
+              onClick={logIn}
+            >
+              Войти
+            </Button>
+          )
+          : <Button variant="contained" onClick={createAccount}>Создать аккаунт</Button>}
+      </Stack>
     </FormWrapper>
   );
-}
+};
 export default AuthForm;

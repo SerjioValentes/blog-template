@@ -3,26 +3,38 @@
 import {
   Button, Stack,
 } from '@mui/material';
-import React from 'react';
-// import LoggedMenu from '../molecule/LoggedMenu';
+import React, { useEffect, useState } from 'react';
+import LoggedMenu from '../molecule/LoggedMenu';
 import UnLoggedMenu from '../molecule/UnLoggedMenu';
 
-const Header = () => (
-  <Stack
-    direction="row"
-    spacing={2}
-    sx={{
-      display: 'flex',
-      justifyContent: 'space-between',
-      p: 1,
-    }}
-  >
-    <Stack direction="row" spacing={2}>
-      <Button variant="contained">Курсы</Button>
-      <Button variant="contained">Все статьи</Button>
+const Header = () => {
+  const [isAuth, setIsAuth] = useState(false);
+
+  useEffect(() => {
+    if (window.localStorage.getItem('accessToken')) {
+      setIsAuth(true);
+    }
+  }, []);
+  return (
+    <Stack
+      direction="row"
+      spacing={2}
+      sx={{
+        display: 'flex',
+        maxWidth: '1200px',
+        m: 'auto',
+        justifyContent: 'space-between',
+        p: 1,
+      }}
+    >
+      <Stack direction="row" spacing={2}>
+        <Button variant="contained">Курсы</Button>
+        <Button variant="contained">Все статьи</Button>
+      </Stack>
+      {isAuth
+        ? <LoggedMenu />
+        : <UnLoggedMenu />}
     </Stack>
-    {/* <LoggedMenu /> */}
-    <UnLoggedMenu />
-  </Stack>
-);
+  );
+};
 export default Header;

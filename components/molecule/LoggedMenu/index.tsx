@@ -14,11 +14,10 @@ const LoggedMenu = () => {
     setAnchorEl(null);
   };
   return (
-    <>
-
+    <div>
       <Box sx={{ display: 'flex', alignItems: 'center', textAlign: 'center' }}>
         <Typography sx={{ minWidth: 100 }}>Контакты</Typography>
-        <Tooltip title="Account settings">
+        <Tooltip title="Настройки">
           <IconButton
             onClick={handleClick}
             size="small"
@@ -79,7 +78,7 @@ const LoggedMenu = () => {
           Выйти
         </MenuItem>
       </Menu>
-    </>
+    </div>
   );
 };
 

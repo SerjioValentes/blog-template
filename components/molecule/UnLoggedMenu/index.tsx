@@ -3,9 +3,13 @@ import {
   Box, MenuItem, Menu, ListItemIcon, Avatar, IconButton, Tooltip, Typography,
 } from '@mui/material';
 import React from 'react';
+import AuthDialog from '../AuthDialog';
 
 const UnLoggedMenu = () => {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
+  // Auth dialog
+  const [isAuthDialogOpen, setIsAuthDialogOpen] = React.useState(false);
+
   const open = Boolean(anchorEl);
 
   const handleClick = (event: React.MouseEvent<HTMLElement>) => {
@@ -16,11 +20,16 @@ const UnLoggedMenu = () => {
     setAnchorEl(null);
   };
 
+  const handleOpenDialog = () => {
+    setIsAuthDialogOpen(true);
+    handleClose();
+  };
+
   return (
     <Box>
       <Box sx={{ display: 'flex', alignItems: 'center', textAlign: 'center' }}>
         <Typography sx={{ minWidth: 100 }}>Контакты</Typography>
-        <Tooltip title="Account settings">
+        <Tooltip title="Настройки">
           <IconButton
             onClick={handleClick}
             size="small"
@@ -70,13 +79,14 @@ const UnLoggedMenu = () => {
         anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
       >
 
-        <MenuItem onClick={handleClose}>
+        <MenuItem onClick={handleOpenDialog}>
           <ListItemIcon>
             <LoginIcon fontSize="small" />
           </ListItemIcon>
           Войти
         </MenuItem>
       </Menu>
+      <AuthDialog isOpen={isAuthDialogOpen} setIsOpen={setIsAuthDialogOpen} />
     </Box>
 
   );

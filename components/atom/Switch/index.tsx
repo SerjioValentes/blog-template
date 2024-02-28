@@ -56,16 +56,21 @@ interface ICustomizedSwitches {
   secondLabel: string;
   setIsNewUser: any;
   isNewUser: boolean
+  setErrors: any;
 }
 
 const CustomizedSwitches = ({
-  firstLabel, secondLabel, setIsNewUser, isNewUser,
+  firstLabel, secondLabel, setIsNewUser, isNewUser, setErrors,
 }: ICustomizedSwitches) => {
   const switchCheck = (event: any) => {
     setIsNewUser(event.target.checked);
+    setErrors(null);
   };
   return (
     <FormControlLabel
+      sx={{
+        py: 2,
+      }}
       checked={isNewUser}
       control={<MaterialUISwitch sx={{ m: 1 }} onChange={switchCheck} />}
       label={<Typography fontSize="1rem">{isNewUser ? firstLabel : secondLabel}</Typography>}
