@@ -1,5 +1,6 @@
 import ImageNext from '@/components/atom/Image';
 import { getAuthorData, urlForImg } from '@/helpers/sanityHelper';
+import useWindowSize from '@/hooks/useWindowSize';
 import {
   Box, Typography, Stack,
 } from '@mui/material';
@@ -9,6 +10,8 @@ import React, { useEffect } from 'react';
 const AboutMeSection = () => {
   const request = 'author';
   const [authorData, setAuthorData] = React.useState<any | null>(null);
+
+  const isMobile = useWindowSize();
 
   useEffect(() => {
     getAuthorData({
@@ -43,7 +46,7 @@ const AboutMeSection = () => {
         }}
         >
           <Typography
-            variant="h5"
+            variant={isMobile ? 'h6' : 'h5'}
             sx={{
               fontWeight: 'bold',
             }}

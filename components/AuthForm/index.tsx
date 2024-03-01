@@ -55,6 +55,7 @@ const AuthForm = ({ handleClose }: { handleClose: () => void }) => {
           {errors
             && errors.map((error: string) => (
               <Typography
+                key={error}
                 variant="body1"
                 color="error"
                 sx={{

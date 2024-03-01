@@ -1,18 +1,29 @@
+'use client';
+
 import { Logout } from '@mui/icons-material';
 import {
   Box, Typography, Tooltip, IconButton, Avatar, Menu, Divider, ListItemIcon, MenuItem,
 } from '@mui/material';
+import { useRouter } from 'next/navigation';
 import React from 'react';
 
 const LoggedMenu = () => {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
+  const router = useRouter();
+
   const handleClick = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorEl(event.currentTarget);
   };
   const handleClose = () => {
     setAnchorEl(null);
   };
+
+  const handleLogout = () => {
+    window.localStorage.clear();
+    router.refresh();
+  };
+
   return (
     <div>
       <Box sx={{ display: 'flex', alignItems: 'center', textAlign: 'center' }}>
@@ -71,7 +82,7 @@ const LoggedMenu = () => {
           Мой профиль
         </MenuItem>
         <Divider />
-        <MenuItem onClick={handleClose}>
+        <MenuItem onClick={handleLogout}>
           <ListItemIcon>
             <Logout fontSize="small" />
           </ListItemIcon>

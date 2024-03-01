@@ -4,11 +4,13 @@ import {
   Button, Stack,
 } from '@mui/material';
 import React, { useEffect, useState } from 'react';
+import { useRouter } from 'next/navigation';
 import LoggedMenu from '../molecule/LoggedMenu';
 import UnLoggedMenu from '../molecule/UnLoggedMenu';
 
 const Header = () => {
   const [isAuth, setIsAuth] = useState(false);
+  const router = useRouter();
 
   useEffect(() => {
     if (window.localStorage.getItem('accessToken')) {
@@ -28,8 +30,8 @@ const Header = () => {
       }}
     >
       <Stack direction="row" spacing={2}>
-        <Button variant="contained">Курсы</Button>
-        <Button variant="contained">Все статьи</Button>
+        <Button onClick={() => router.push('/')} variant="contained">Домой</Button>
+        <Button onClick={() => router.push('/articles')} variant="contained">Все статьи</Button>
       </Stack>
       {isAuth
         ? <LoggedMenu />

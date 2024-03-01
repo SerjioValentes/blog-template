@@ -3,17 +3,17 @@
 import React from 'react';
 import {
   Box,
-  // Stack,
+  Stack,
 } from '@mui/material';
-// import AboutMeSection from '@/components/organism/AboutMeSection';
-// import ArticlesSlider from '@/components/organism/ArticlesSlider';
-// import Header from '@/components/Header';
-// import useWindowSize from '@/hooks/useWindowSize';
-import Stub from '@/components/molecule/Stub';
+import AboutMeSection from '@/components/organism/AboutMeSection';
+import ArticlesSlider from '@/components/organism/ArticlesSlider';
+import Header from '@/components/Header';
+import useWindowSize from '@/hooks/useWindowSize';
+// import Stub from '@/components/molecule/Stub';
 
 function HomePage() {
   // const tg = typeof window === 'undefined' ? undefined : (window as any).Telegram?.WebApp;
-  // const isMobile = useWindowSize();
+  const isMobile = useWindowSize();
   return (
     <Box sx={{
       maxWidth: '1200px',
@@ -22,10 +22,10 @@ function HomePage() {
       position: 'relative',
     }}
     >
-      {/* {!isMobile
-      && <Header />} */}
-      <Stub />
-      {/* <AboutMeSection />
+      {!isMobile
+      && <Header />}
+      {/* <Stub /> */}
+      <AboutMeSection />
       <ArticlesSlider />
       <Stack sx={{
         position: 'absolute',
@@ -34,7 +34,7 @@ function HomePage() {
       >
         {isMobile
       && <Header />}
-      </Stack> */}
+      </Stack>
     </Box>
 
   );

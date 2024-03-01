@@ -12,9 +12,9 @@ export default function RootLayout({
   const THEME_COLOR = 'fff';
 
   return (
-    <html lang="en">
+    <html lang="ru">
       <Head>
-        <title />
+        <title>Кира Камалова</title>
         <meta charSet="utf-8" />
         <meta
           httpEquiv="X-UA-Compatible"
@@ -25,7 +25,7 @@ export default function RootLayout({
           content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover"
         />
         <meta
-          name="description"
+          name="Психолог и помощник по жизни"
           content="content"
         />
 

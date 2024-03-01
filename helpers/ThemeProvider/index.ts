@@ -11,6 +11,26 @@ const montserrat = Montserrat({
 
 const theme: Theme = createTheme({
   components: {
+    MuiButton: {
+      variants: [
+        {
+          props: { variant: 'contained' },
+          style: {
+            '&:hover': {
+              backgroundColor: '#000',
+              color: '#fff',
+            },
+            // border: '2px dashed #fff',
+          },
+        },
+      ],
+      styleOverrides: {
+        // Name of the slot
+        root: {
+          fontSize: '1rem',
+        },
+      },
+    },
     MuiTextField: {
       styleOverrides: {
         root: {
@@ -43,8 +63,8 @@ const theme: Theme = createTheme({
   palette: {
     primary: {
       main: '#fff',
-      light: '#42a5f5',
-      dark: '#1565c0',
+      light: '#fff',
+      dark: '#42a5f5',
       contrastText: '#000',
     },
     secondary: {
@@ -56,7 +76,7 @@ const theme: Theme = createTheme({
       contrastText: '#fff',
     },
     info: {
-      main: '#000',
+      main: '#fff',
       light: 'gray',
       dark: 'gray',
       contrastText: '#fff',
@@ -65,10 +85,3 @@ const theme: Theme = createTheme({
 });
 
 export default theme;
-
-// main: '#42a5f5',
-// light: '#42a5f5',
-// dark: '#1565c0',
-// contrastText: '#fff',
-// main: '#fff',
-// contrastText: '#000',

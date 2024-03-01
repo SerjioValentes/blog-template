@@ -23,6 +23,7 @@ const EachSlide = ({ post }: any) => {
         height: 200,
         p: 2,
         border: '1px solid #ede8e8',
+        cursor: 'pointer',
       }}
     >
       <CardMedia

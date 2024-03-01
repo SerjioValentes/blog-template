@@ -15,15 +15,15 @@ const Article = () => {
     }
   }, [router.isReady]);
 
-  const handleBack = () => {
-    router.back();
-  };
+  // const handleBack = () => {
+  //   router.back();
+  // };
 
   return (
     <div>
-      <Button variant="contained" onClick={handleBack}>
-        show
-      </Button>
+      {/* <Button variant="contained" onClick={handleBack}>
+        Вернуться назад
+      </Button> */}
       <Stack sx={{
         pt: 4,
       }}
