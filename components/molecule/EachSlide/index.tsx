@@ -33,6 +33,7 @@ const EachSlide = ({ post }: any) => {
       <CardContent>
         <Typography
           variant="body2"
+          component="span"
           sx={{
             height: '100px',
             overflow: 'hidden',

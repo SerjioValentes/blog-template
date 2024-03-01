@@ -32,11 +32,16 @@ const AboutMeSection = () => {
           p: 4,
         }}
         >
-          <ImageNext
-            width="30vw"
-            imgSrc={authorData?.image ? urlForImg(authorData.image?.asset).url() : ''}
-            alt="author"
-          />
+          {authorData?.image
+            && (
+            <ImageNext
+              width="30vw"
+              height="auto"
+              imgSrc={authorData?.image ? urlForImg(authorData?.image?.asset).url() : ''}
+              alt="author"
+              priority
+            />
+            )}
         </Box>
         <Stack sx={{
           maxWidth: '50vw',
@@ -53,7 +58,9 @@ const AboutMeSection = () => {
           >
             {authorData && authorData.name}
           </Typography>
-          <Typography>
+          <Typography
+            component="span"
+          >
             <PortableText
               value={authorData && authorData.bio}
             />

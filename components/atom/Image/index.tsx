@@ -1,30 +1,25 @@
 import React from 'react';
 import Image from 'next/image';
-import { Box } from '@mui/material';
 
 type Props = {
   width: string;
-  height?: string;
+  height: string;
   imgSrc: string;
   alt: string;
+  priority: boolean;
 };
 
 const ImageNext = ({
-  width, height = 'auto', imgSrc, alt,
+  width, height, imgSrc = '', alt, priority = false,
 }: Props) => (
-  <Box sx={{
-    width,
-    height,
-  }}
-  >
-    <Image
-      width={0}
-      height={0}
-      sizes="100vw"
-      style={{ width: '100%', height: 'auto' }}
-      alt={alt}
-      src={imgSrc}
-    />
-  </Box>
+  <Image
+    width={0}
+    height={0}
+    sizes="100vw"
+    style={{ width, height }}
+    alt={alt}
+    src={imgSrc}
+    priority={priority}
+  />
 );
 export default ImageNext;
