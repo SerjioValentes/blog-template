@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import {
   Box,
   Stack,
@@ -12,9 +12,12 @@ import Header from '@/components/Header';
 import useWindowSize from '@/hooks/useWindowSize';
 // import Stub from '@/components/molecule/Stub';
 
+const tg = typeof window === 'undefined' ? undefined : (window as any)?.Telegram?.WebApp;
 function HomePage() {
-  const tg = typeof window === 'undefined' ? undefined : (window as any).Telegram.WebApp;
   const isMobile = useWindowSize();
+  useEffect(() => {
+    tg.ready();
+  }, []);
   return (
     <Box sx={{
       maxWidth: '1200px',
