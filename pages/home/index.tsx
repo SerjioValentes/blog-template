@@ -1,25 +1,18 @@
 'use client';
 
-import React, { useEffect } from 'react';
+import React from 'react';
 import {
   Box,
   Stack,
-  Typography,
 } from '@mui/material';
 // import AboutMeSection from '@/components/organism/AboutMeSection';
 // import ArticlesSlider from '@/components/organism/ArticlesSlider';
-import Header from '@/components/Header';
-import useWindowSize from '@/hooks/useWindowSize';
-// import Stub from '@/components/molecule/Stub';
+// import Header from '@/components/Header';
+// import useWindowSize from '@/hooks/useWindowSize';
+import Stub from '@/components/molecule/Stub';
 
-const tg = typeof window === 'undefined' ? undefined : (window as any)?.Telegram?.WebApp;
 function HomePage() {
-  const isMobile = useWindowSize();
-  useEffect(() => {
-    if (tg) {
-      tg.ready();
-    }
-  }, []);
+  // const isMobile = useWindowSize();
   return (
     <Box sx={{
       maxWidth: '1200px',
@@ -28,16 +21,9 @@ function HomePage() {
       position: 'relative',
     }}
     >
-      <Typography>test text2</Typography>
-      <Typography>test text2</Typography>
-      <Typography>
-        {tg && JSON.stringify(tg)}
-        <Typography>-----------------------------------</Typography>
-        {tg && JSON.stringify(tg.initDataUnsafe)}
-        {/* {tg && tg.initDataUnsafe?.user} */}
-      </Typography>
-      {!isMobile
-      && <Header />}
+      <Stub />
+      {/* {!isMobile
+      && <Header />} */}
       {/* <AboutMeSection /> */}
       {/* <ArticlesSlider /> */}
       <Stack sx={{
@@ -45,8 +31,8 @@ function HomePage() {
         bottom: 0,
       }}
       >
-        {isMobile
-      && <Header />}
+        {/* {isMobile
+      && <Header />} */}
       </Stack>
     </Box>
 

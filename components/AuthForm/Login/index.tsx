@@ -30,7 +30,6 @@ const LoginPart = ({
     }));
   };
   const logIn = async () => {
-    console.log('userData', userData);
     AuthService.login(userData, handleClose, setErrors);
   };
   return (
