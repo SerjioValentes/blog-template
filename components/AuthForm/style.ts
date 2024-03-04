@@ -6,7 +6,7 @@ import styled from '@emotion/styled';
 const FormWrapper = styled('div')({
   display: 'flex',
   flexDirection: 'column',
-  width: '100%',
+  width: '300px',
   padding: '20px',
   gap: 20,
   borderRadius: 4,

@@ -25,8 +25,8 @@ function HomePage() {
       {!isMobile
       && <Header />}
       {/* <Stub /> */}
-      <AboutMeSection />
-      <ArticlesSlider />
+      {/* <AboutMeSection /> */}
+      {/* <ArticlesSlider /> */}
       <Stack sx={{
         position: 'absolute',
         bottom: 0,

@@ -52,15 +52,13 @@ const MaterialUISwitch = styled(Switch)(({ theme }) => ({
 }));
 
 interface ICustomizedSwitches {
-  firstLabel: string;
-  secondLabel: string;
   setIsNewUser: any;
   isNewUser: boolean
   setErrors: any;
 }
 
 const CustomizedSwitches = ({
-  firstLabel, secondLabel, setIsNewUser, isNewUser, setErrors,
+  setIsNewUser, isNewUser, setErrors,
 }: ICustomizedSwitches) => {
   const switchCheck = (event: any) => {
     setIsNewUser(event.target.checked);
@@ -73,7 +71,7 @@ const CustomizedSwitches = ({
       }}
       checked={isNewUser}
       control={<MaterialUISwitch sx={{ m: 1 }} onChange={switchCheck} />}
-      label={<Typography fontSize="1rem">{isNewUser ? firstLabel : secondLabel}</Typography>}
+      label={<Typography fontSize="1rem">{isNewUser ? 'Зарегестрироваться' : 'Войти'}</Typography>}
     />
   );
 };
