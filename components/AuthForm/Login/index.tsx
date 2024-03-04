@@ -5,11 +5,9 @@ import {
 } from '@mui/material';
 import React, { useState } from 'react';
 
-const tg = typeof window === 'undefined' ? undefined : (window as any).Telegram?.WebApp;
 export interface IUserData {
   email: string;
   password: string;
-  telegramId: string;
 }
 
 const LoginPart = ({
@@ -18,7 +16,6 @@ const LoginPart = ({
   const [userData, setUserData] = useState<IUserData>({
     email: '',
     password: '',
-    telegramId: tg?.initDataUnsafe?.user?.id || '',
   });
 
   const userDataOnChange = (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -34,9 +31,6 @@ const LoginPart = ({
   };
   return (
     <Box>
-      {/* {
-        tg?.initDataUnsafe?.user?.id && tg?.initDataUnsafe?.user?.id
-      } */}
       <Stack spacing={2}>
         <TextField label="Почта" name="email" placeholder="Ваша почта" onChange={userDataOnChange} />
         <TextField label="Пароль" name="password" placeholder="Пароль" onChange={userDataOnChange} />
