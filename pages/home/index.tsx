@@ -4,6 +4,7 @@ import React from 'react';
 import {
   Box,
   Stack,
+  Typography,
 } from '@mui/material';
 // import AboutMeSection from '@/components/organism/AboutMeSection';
 // import ArticlesSlider from '@/components/organism/ArticlesSlider';
@@ -12,7 +13,7 @@ import useWindowSize from '@/hooks/useWindowSize';
 // import Stub from '@/components/molecule/Stub';
 
 function HomePage() {
-  // const tg = typeof window === 'undefined' ? undefined : (window as any).Telegram?.WebApp;
+  const tg = typeof window === 'undefined' ? undefined : (window as any).Telegram.WebApp;
   const isMobile = useWindowSize();
   return (
     <Box sx={{
@@ -22,6 +23,14 @@ function HomePage() {
       position: 'relative',
     }}
     >
+      <Typography>test text2</Typography>
+      <Typography>test text2</Typography>
+      <Typography>
+        {tg && JSON.stringify(tg)}
+        <Typography>-----------------------------------</Typography>
+        {tg && JSON.stringify(tg.initDataUnsafe)}
+        {/* {tg && tg.initDataUnsafe?.user} */}
+      </Typography>
       {!isMobile
       && <Header />}
       {/* <AboutMeSection /> */}
