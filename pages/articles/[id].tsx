@@ -1,5 +1,5 @@
 import { getPost } from '@/helpers/sanityHelper';
-import { Button, Stack, Typography } from '@mui/material';
+import { Stack, Typography } from '@mui/material';
 import { PortableText } from '@portabletext/react';
 import { useRouter } from 'next/router';
 import React, { useEffect, useState } from 'react';

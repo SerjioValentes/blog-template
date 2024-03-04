@@ -5,8 +5,8 @@ import {
   Box,
   Stack,
 } from '@mui/material';
-import AboutMeSection from '@/components/organism/AboutMeSection';
-import ArticlesSlider from '@/components/organism/ArticlesSlider';
+// import AboutMeSection from '@/components/organism/AboutMeSection';
+// import ArticlesSlider from '@/components/organism/ArticlesSlider';
 import Header from '@/components/Header';
 import useWindowSize from '@/hooks/useWindowSize';
 // import Stub from '@/components/molecule/Stub';
@@ -24,7 +24,6 @@ function HomePage() {
     >
       {!isMobile
       && <Header />}
-      {/* <Stub /> */}
       {/* <AboutMeSection /> */}
       {/* <ArticlesSlider /> */}
       <Stack sx={{
