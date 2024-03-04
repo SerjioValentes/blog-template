@@ -16,7 +16,9 @@ const tg = typeof window === 'undefined' ? undefined : (window as any)?.Telegram
 function HomePage() {
   const isMobile = useWindowSize();
   useEffect(() => {
-    tg.ready();
+    if (tg) {
+      tg.ready();
+    }
   }, []);
   return (
     <Box sx={{
