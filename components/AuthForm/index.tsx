@@ -2,9 +2,9 @@
 
 import React, { useState } from 'react';
 import {
+  Link,
   Stack,
 } from '@mui/material';
-// import AuthService from '@/services/AuthService';
 import FormWrapper from './style';
 import Registration from './Registration';
 import LoginPart from './Login';
@@ -14,7 +14,6 @@ const AuthForm = ({ handleClose }: { handleClose: () => void }) => {
   const [isNewUser, setIsNewUser] = useState(true);
   // Errors
   const [errors, setErrors] = useState<string[] | null>(null);
-
   return (
     <FormWrapper>
       <Stack>
@@ -38,8 +37,18 @@ const AuthForm = ({ handleClose }: { handleClose: () => void }) => {
                 handleClose={handleClose}
               />
             )
-        }
+          }
       </Stack>
+      <Link
+        href="/restore-email"
+        align="right"
+        color="secondary"
+        sx={{
+          fontSize: '0.8rem',
+        }}
+      >
+        Забыли пароль?
+      </Link>
     </FormWrapper>
   );
 };

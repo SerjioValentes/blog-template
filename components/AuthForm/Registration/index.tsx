@@ -1,7 +1,8 @@
 import CustomizedSwitches from '@/components/atom/Switch';
+import theme from '@/helpers/ThemeProvider';
 import AuthService from '@/services/AuthService';
 import {
-  Box, Button, Stack, TextField, Typography,
+  Box, Button, Checkbox, Stack, TextField, Typography,
 } from '@mui/material';
 import React, { useState } from 'react';
 
@@ -37,6 +38,7 @@ const Registration = ({
     }
     AuthService.registration(userData, handleClose, setErrors);
   };
+  const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
   return (
     <Box>
       <Stack spacing={2}>
@@ -66,6 +68,42 @@ const Registration = ({
         setErrors={setErrors}
       />
       <Button fullWidth variant="contained" onClick={createAccount}>Создать аккаунт</Button>
+      <Stack>
+        <Stack direction="row" alignItems="center">
+          <Checkbox
+            sx={{
+              color: theme.palette.secondary.dark,
+              '&.Mui-checked': {
+                color: theme.palette.secondary.dark,
+              },
+            }}
+            {...label}
+          />
+          <Typography sx={{
+            fontSize: '0.8rem',
+          }}
+          >
+            Ознакомиться с публичной офертой
+          </Typography>
+        </Stack>
+        <Stack direction="row" alignItems="center">
+          <Checkbox
+            sx={{
+              color: theme.palette.secondary.dark,
+              '&.Mui-checked': {
+                color: theme.palette.secondary.dark,
+              },
+            }}
+            {...label}
+          />
+          <Typography sx={{
+            fontSize: '0.8rem',
+          }}
+          >
+            Ознакомиться ------ 2
+          </Typography>
+        </Stack>
+      </Stack>
     </Box>
   );
 };

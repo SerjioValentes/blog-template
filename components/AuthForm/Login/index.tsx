@@ -51,7 +51,6 @@ const LoginPart = ({
               </Typography>
             ))}
       </Stack>
-
       <CustomizedSwitches
         setIsNewUser={setIsNewUser}
         isNewUser={isNewUser}

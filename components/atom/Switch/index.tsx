@@ -46,8 +46,8 @@ const MaterialUISwitch = styled(Switch)(({ theme }) => ({
   },
   '& .MuiSwitch-track': {
     opacity: 1,
-    backgroundColor: theme.palette.mode === 'dark' ? '#8796A5' : '#aab4be',
-    borderRadius: 20 / 2,
+    backgroundColor: theme.palette.mode === 'dark' ? theme.palette.secondary.dark : '#aab4be',
+    // borderRadius: 20 / 2,
   },
 }));
 
@@ -70,8 +70,8 @@ const CustomizedSwitches = ({
         py: 2,
       }}
       checked={isNewUser}
-      control={<MaterialUISwitch sx={{ m: 1 }} onChange={switchCheck} />}
-      label={<Typography fontSize="1rem">{isNewUser ? 'Зарегестрироваться' : 'Войти'}</Typography>}
+      control={<MaterialUISwitch onChange={switchCheck} />}
+      label={<Typography fontSize="0.8rem">{isNewUser ? 'Зарегестрироваться' : 'Войти'}</Typography>}
     />
   );
 };

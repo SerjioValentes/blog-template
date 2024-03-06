@@ -70,6 +70,8 @@ const theme: Theme = createTheme({
     secondary: {
       main: '#42a5f5',
       contrastText: '#fff',
+      dark: '#000',
+
     },
     error: {
       main: '#c62828',
